@@ -12,54 +12,54 @@ class TransactionsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
-      child: SingleChildScrollView(
-        child: Column(
-            children: transactions.map((tx) {
-          return Container(
-              width: double.infinity,
-              margin: const EdgeInsets.all(6),
-              padding: EdgeInsets.all(10.0),
-              child: Card(
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.all(2),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              tx.title,
-                              style: TextStyle(
-                                  color: Colors.orange,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                              textAlign: TextAlign.center,
+        height: 500,
+
+        // ListView.builder is better than ListView because it works with lazy loading
+
+        child: ListView.builder(
+            itemCount: transactions.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                  width: double.infinity, 
+                  margin: const EdgeInsets.all(6),
+                  padding: EdgeInsets.all(10.0),
+                  child: Card(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.all(2),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  transactions[index].title,
+                                  style: TextStyle(
+                                      color: Colors.orange,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                    DateFormat.yMMMEd()
+                                        .format(transactions[index].date),
+                                    textAlign: TextAlign.center),
+                              ],
                             ),
-                            Text(DateFormat.yMMMEd().format(tx.date),
-                                textAlign: TextAlign.center),
-                          ],
-                        ),
-                      ),
-                      Container(
-                          padding: EdgeInsets.all(2),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.deepOrange, width: 0),
                           ),
-                          child: Text(
-                            tx.amount.toString() + " \$",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.deepOrange,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20),
-                          )),
-                    ]),
-                elevation: 10,
-              ));
-        }).toList()),
-      ),
-    );
+                          Container(
+                              padding: EdgeInsets.all(2),
+                              child: Text(
+                                transactions[index].amount.toString() + " \$",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.deepOrange,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              )),
+                        ]),
+                    elevation: 10,
+                  ));
+            }));
   }
 }

@@ -14,9 +14,12 @@ class _UserTransactionsState extends State<UserTransactions> {
         id: "T1", title: "WIFI FEE", amount: 20.5, date: DateTime.now()),
     Transaction(
         id: "T2", title: "Sport Club", amount: 40, date: DateTime.now()),
-    Transaction(id: "T3", title: "Foods", amount: 200.5, date: DateTime.now()),
     Transaction(
-        id: "T4", title: "T-shirts", amount: 200.5, date: DateTime.now()),
+        id: "T4", title: "Transport", amount: 30.54, date: DateTime.now()),
+    Transaction(
+        id: "T5", title: "Clothing", amount: 30.02, date: DateTime.now()),
+    Transaction(id: "T6", title: "Home", amount: 100.5, date: DateTime.now()),
+    Transaction(id: "T7", title: "Education", amount: 150.5, date: DateTime.now()),
   ];
 
 //  (_) means , it's private to its library
@@ -36,6 +39,9 @@ class _UserTransactionsState extends State<UserTransactions> {
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [NewTransaction(_AddNewTransaction), TransactionsList(_transactions)]);
+        children: [
+          NewTransaction(_AddNewTransaction),
+          TransactionsList(_transactions)
+        ]);
   }
 }

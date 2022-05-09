@@ -16,21 +16,25 @@ class NewTransaction extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              TextField(
-                controller: titlecontroller,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Title',
+              Container(
+                margin: EdgeInsets.all(4),
+                child: TextField(
+                  controller: titlecontroller,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Title',
+                  ),
                 ),
-                // onChanged: (value) => {this.title = value},
               ),
-              TextField(
-                controller: amountcontroller,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Amount',
+              Container(
+                margin: EdgeInsets.all(4),
+                child: TextField(
+                  controller: amountcontroller,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Amount',
+                  ),
                 ),
-                // onChanged: (value) => {this.amount = value},
               ),
               FlatButton(
                   child: TextButton(

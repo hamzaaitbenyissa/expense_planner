@@ -10,7 +10,11 @@ class MyApp extends StatelessWidget {
         title: 'Expense Planner',
         home: Scaffold(
             appBar: AppBar(
-              title: const Text('Expense Planner'),
+              backgroundColor: Colors.orange,
+              title: const Text(
+                'Expense Planner',
+                style: TextStyle(color: Colors.black),
+              ),
             ),
             body: SingleChildScrollView(child: UserTransactions())));
   }
